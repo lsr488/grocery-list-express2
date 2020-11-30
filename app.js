@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+// body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // static files
 app.use(express.static('public'));
